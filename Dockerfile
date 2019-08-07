@@ -1,19 +1,29 @@
 FROM continuumio/miniconda3
 
-LABEL maintainer="Ali Shaikh <ali.shaikh@g1g.com>"
-
-ENV PYTHON_PACKAGES="\
+ENV PYTHON_DATABASES_PACKAGES="\
+    SQLAlchemy \
+    boto3 \
+    pyspark"
+ENV PYTHON_COMPUTATION_PACKAGES="\
     cython \
     numpy \
-    matplotlib \
     scipy \
     scikit-learn \
     pandas \
     nltk \
-    datetime"
+    datetime \
+    beautifulsoup4 \
+    scrapy"
+ENV PYTHON_VISUAL_PACKAGES="\
+    seaborn \
+    bokeh \
+    matplotlib"
 
 ENV CONDA_PACKAGES="\
-    -c conda-forge tensorflow"
+    -c conda-forge tensorflow \
+    -c anaconda pyodbc"
 
-RUN pip install --no-cache-dir $PYTHON_PACKAGES \
-    && conda install $CONDA_PACKAGES
+
+RUN pip install --no-cache-dir $PYTHON_DATABASES_PACKAGES $PYTHON_COMPUTATION_PACKAGES $PYTHON_VISUAL_PACKAGES \
+    && conda install $CONDA_PACKAGES \
+    && conda update -n base -c defaults conda
