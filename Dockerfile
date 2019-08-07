@@ -4,7 +4,7 @@ ENV PYTHON_DATABASES_PACKAGES="\
     SQLAlchemy \
     boto3 \
     pyspark"
-    
+
 ENV PYTHON_COMPUTATION_PACKAGES="\
     cython \
     numpy \
@@ -28,3 +28,4 @@ ENV CONDA_PACKAGES="\
 RUN pip install --no-cache-dir $PYTHON_DATABASES_PACKAGES $PYTHON_COMPUTATION_PACKAGES $PYTHON_VISUAL_PACKAGES \
     && conda install $CONDA_PACKAGES \
     && conda update -n base -c defaults conda
+    && conda clean --all
