@@ -4,6 +4,7 @@ ENV PYTHON_DATABASES_PACKAGES="\
     SQLAlchemy \
     boto3 \
     pyspark"
+    
 ENV PYTHON_COMPUTATION_PACKAGES="\
     cython \
     numpy \
@@ -14,15 +15,15 @@ ENV PYTHON_COMPUTATION_PACKAGES="\
     datetime \
     beautifulsoup4 \
     scrapy"
+
 ENV PYTHON_VISUAL_PACKAGES="\
     seaborn \
     bokeh \
     matplotlib"
 
 ENV CONDA_PACKAGES="\
-    -c conda-forge tensorflow \
-    -c anaconda pyodbc"
-
+    conda-forge::tensorflow \
+    anaconda::pyodbc"
 
 RUN pip install --no-cache-dir $PYTHON_DATABASES_PACKAGES $PYTHON_COMPUTATION_PACKAGES $PYTHON_VISUAL_PACKAGES \
     && conda install $CONDA_PACKAGES \
