@@ -18,4 +18,4 @@ ENV CONDA_PACKAGES="\
     "
 
 RUN pip install --no-cache-dir $PYTHON_PACKAGES /
-&& conda install $CONDA_PACKAGES
+    && conda install $CONDA_PACKAGES
