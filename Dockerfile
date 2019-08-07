@@ -15,5 +15,5 @@ ENV PYTHON_PACKAGES="\
 ENV CONDA_PACKAGES="\
     -c conda-forge tensorflow"
 
-RUN pip install --no-cache-dir $PYTHON_PACKAGES /
+RUN pip install --no-cache-dir $PYTHON_PACKAGES \
     && conda install $CONDA_PACKAGES
