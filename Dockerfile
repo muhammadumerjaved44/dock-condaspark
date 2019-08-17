@@ -42,5 +42,8 @@ RUN curl -sL --retry 3 \
  && mv /usr/$SPARK_PACKAGE $SPARK_HOME \
  && chown -R root:root $SPARK_HOME
 
-WORKDIR $SPARK_HOME
+# setting working directory
+ENV WORKING_DIR /home/app
+WORKDIR $WORKING_DIR
+#WORKDIR $SPARK_HOME
 CMD ["bin/spark-class", "org.apache.spark.deploy.master.Master"]
