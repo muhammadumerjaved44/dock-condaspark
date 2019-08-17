@@ -11,11 +11,11 @@ RUN apt-get update && \
 ENV JAVA_HOME /usr/lib/jvm/java-8-openjdk-amd64/
 RUN export JAVA_HOME
 
-# py4j
-RUN apt-get update \
-    && easy_install3 pip py4j \
-    && apt-get clean \
-    && rm -rf /var/lib/apt/lists/*
+## py4j
+#RUN apt-get update \
+#    && easy_install3 pip py4j \
+#    && apt-get clean \
+#    && rm -rf /var/lib/apt/lists/*
 
 # HADOOP
 ENV HADOOP_VERSION 3.0.0
