@@ -43,7 +43,7 @@ RUN curl -sL --retry 3 \
  && chown -R root:root $SPARK_HOME
 
 # setting working directory
-ENV WORKING_DIR /home/app
+ENV WORKING_DIR /app
 WORKDIR $WORKING_DIR
 #WORKDIR $SPARK_HOME
 CMD ["bin/spark-class", "org.apache.spark.deploy.master.Master"]
