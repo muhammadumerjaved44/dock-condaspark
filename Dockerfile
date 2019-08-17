@@ -1,7 +1,6 @@
 FROM continuumio/miniconda3
 
 # JAVA
-RUN apt-get update \
- && apt-get install -y openjdk-8-jre \
- && apt-get clean \
- && rm -rf /var/lib/apt/lists/*
+RUN apt-add-repository ppa:webupd8team/java \
+ && apt-get update \
+ && apt-get install oracle-java8-installer
